@@ -1,0 +1,4 @@
+Junior Software Engineer
+Required qualifications: Experience with Python and React; familiarity with SQL and REST APIs.
+Preferred qualifications: AWS, Docker, and Kubernetes experience.
+Collaborate with engineers and communicate technical tradeoffs.

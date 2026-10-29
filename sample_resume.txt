@@ -1,0 +1,6 @@
+Taylor Chen
+Software engineering graduate
+Skills: Python, React, SQL, Git.
+Built a React dashboard that consumed existing REST APIs and visualized metrics from a MySQL database.
+Created Python scripts to clean data and automate reporting.
+Collaborated with designers and engineers to ship responsive user interfaces.
