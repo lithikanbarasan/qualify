@@ -34,11 +34,12 @@ async function analyze(e: React.FormEvent) {
       form.append('resume_file', file);
     }
 
-    const response = await fetch('/api/analyze', {
+    const apiBase = import.meta.env.VITE_API_URL || '';
+
+    const response = await fetch(`${apiBase}/api/analyze`, {
       method: 'POST',
       body: form,
     });
-
     // Handle API failures before attempting to parse JSON.
     if (!response.ok) {
       if (response.status === 503 || response.status === 502) {

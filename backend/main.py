@@ -1,10 +1,25 @@
 from fastapi import FastAPI, File, Form, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from engine import analyze, extract_pdf
+import os 
 
-app=FastAPI(title='Evidence API',version='2.0')
-app.add_middleware(CORSMiddleware,allow_origins=['http://localhost:5173','http://127.0.0.1:5173'],allow_methods=['GET','POST'],allow_headers=['*'])
+app = FastAPI(title="Qualify API", version="2.0")
 
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+vercel_url = os.getenv("FRONTEND_URL")
+if vercel_url:
+    allowed_origins.append(vercel_url.rstrip("/"))
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 @app.get('/api/health')
 def health(): return {'status':'ok'}
 
